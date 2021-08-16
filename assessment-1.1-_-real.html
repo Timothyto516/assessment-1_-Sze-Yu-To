@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Timothy To" />
+<meta name="author" content="Timothy To_s4651730" />
 
 
 <title>assessment 1.1</title>
@@ -165,154 +165,26 @@ pre code {
 
 
 <h1 class="title toc-ignore">assessment 1.1</h1>
-<h4 class="author">Timothy To</h4>
+<h4 class="author">Timothy To_s4651730</h4>
 <h4 class="date">8/16/2021</h4>
 
 </div>
 
 
+<p>library(knitr)</p>
+<p><code>{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE)</code></p>
 <div id="rmarkdown-editing" class="section level1">
 <h1><strong>RMarkdown editing</strong></h1>
 <p><strong>R Markdown is a file format for making dynamic documents with R. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code</strong></p>
-<p>#insert data</p>
-<pre class="r"><code>fastfood&lt;-read.csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-09-04/fastfood_calories.csv&#39;)</code></pre>
+<p>#insert data <code>{r fastfood} fastfood&lt;-read.csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-09-04/fastfood_calories.csv&#39;)</code></p>
 <p>#apply library</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
-<pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
-## v tibble  3.1.3     v dplyr   1.0.7
-## v tidyr   1.1.3     v stringr 1.4.0
-## v readr   2.0.0     v forcats 0.5.1</code></pre>
-<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(skimr)
+<pre class="{r}"><code>library(tidyverse)
+library(skimr)
 library(janitor)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;janitor&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     chisq.test, fisher.test</code></pre>
 <p>#display first 10</p>
-<pre class="r"><code>head(fastfood,10)</code></pre>
-<pre><code>##     X restaurant                                      item calories cal_fat
-## 1   1  Mcdonalds          Artisan Grilled Chicken Sandwich      380      60
-## 2   2  Mcdonalds            Single Bacon Smokehouse Burger      840     410
-## 3   3  Mcdonalds            Double Bacon Smokehouse Burger     1130     600
-## 4   4  Mcdonalds Grilled Bacon Smokehouse Chicken Sandwich      750     280
-## 5   5  Mcdonalds  Crispy Bacon Smokehouse Chicken Sandwich      920     410
-## 6   6  Mcdonalds                                   Big Mac      540     250
-## 7   7  Mcdonalds                              Cheeseburger      300     100
-## 8   8  Mcdonalds                  Classic Chicken Sandwich      510     210
-## 9   9  Mcdonalds                       Double Cheeseburger      430     190
-## 10 10  Mcdonalds      Double Quarter PounderÂ® with Cheese      770     400
-##    total_fat sat_fat trans_fat cholesterol sodium total_carb fiber sugar
-## 1          7       2       0.0          95   1110         44     3    11
-## 2         45      17       1.5         130   1580         62     2    18
-## 3         67      27       3.0         220   1920         63     3    18
-## 4         31      10       0.5         155   1940         62     2    18
-## 5         45      12       0.5         120   1980         81     4    18
-## 6         28      10       1.0          80    950         46     3     9
-## 7         12       5       0.5          40    680         33     2     7
-## 8         24       4       0.0          65   1040         49     3     6
-## 9         21      11       1.0          85   1040         35     2     7
-## 10        45      21       2.5         175   1290         42     3    10
-##    protein vit_a vit_c calcium salad
-## 1       37     4    20      20 Other
-## 2       46     6    20      20 Other
-## 3       70    10    20      50 Other
-## 4       55     6    25      20 Other
-## 5       46     6    20      20 Other
-## 6       25    10     2      15 Other
-## 7       15    10     2      10 Other
-## 8       25     0     4       2 Other
-## 9       25    20     4      15 Other
-## 10      51    20     6      20 Other</code></pre>
+<pre class="{r}"><code>head(fastfood,10)</code></pre>
 <p>#display first 10 rows and 5 variables #7</p>
-<pre class="r"><code>knitr::kable(fastfood[1:10,1:5],&quot;pipe&quot;)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="right">X</th>
-<th align="left">restaurant</th>
-<th align="left">item</th>
-<th align="right">calories</th>
-<th align="right">cal_fat</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">Mcdonalds</td>
-<td align="left">Artisan Grilled Chicken Sandwich</td>
-<td align="right">380</td>
-<td align="right">60</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">Mcdonalds</td>
-<td align="left">Single Bacon Smokehouse Burger</td>
-<td align="right">840</td>
-<td align="right">410</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">Mcdonalds</td>
-<td align="left">Double Bacon Smokehouse Burger</td>
-<td align="right">1130</td>
-<td align="right">600</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">Mcdonalds</td>
-<td align="left">Grilled Bacon Smokehouse Chicken Sandwich</td>
-<td align="right">750</td>
-<td align="right">280</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">Mcdonalds</td>
-<td align="left">Crispy Bacon Smokehouse Chicken Sandwich</td>
-<td align="right">920</td>
-<td align="right">410</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">Mcdonalds</td>
-<td align="left">Big Mac</td>
-<td align="right">540</td>
-<td align="right">250</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">Mcdonalds</td>
-<td align="left">Cheeseburger</td>
-<td align="right">300</td>
-<td align="right">100</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">Mcdonalds</td>
-<td align="left">Classic Chicken Sandwich</td>
-<td align="right">510</td>
-<td align="right">210</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">Mcdonalds</td>
-<td align="left">Double Cheeseburger</td>
-<td align="right">430</td>
-<td align="right">190</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">Mcdonalds</td>
-<td align="left">Double Quarter PounderÂ® with Cheese</td>
-<td align="right">770</td>
-<td align="right">400</td>
-</tr>
-</tbody>
-</table>
+<pre class="{r}"><code>knitr::kable(fastfood[1:10,1:5],&quot;pipe&quot;)</code></pre>
 </div>
 
 

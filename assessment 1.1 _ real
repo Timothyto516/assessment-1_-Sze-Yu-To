@@ -1,9 +1,13 @@
 ---
 title: "assessment 1.1"
-author: "Timothy To"
+author: "Timothy To_s4651730"
 date: "8/16/2021"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
+library(knitr)
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -28,6 +32,7 @@ library(janitor)
 ```{r}
 head(fastfood,10)
 ```
+
 
 #display first 10 rows and 5 variables #7 
 ```{r}
