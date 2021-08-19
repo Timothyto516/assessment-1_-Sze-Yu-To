@@ -17,19 +17,50 @@ knitr::opts_chunk$set(echo = TRUE)
 fastfood<-read.csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-09-04/fastfood_calories.csv')
 ```
 
-#apply library 
+#**apply library**
 ```{r}
 library(tidyverse)
 library(skimr)
 library(janitor)
+library(dplyr)
+library(reshape)
+library(tidyr)
 ```
 
-#display first 10
+#**display first 10**
 ```{r}
 head(fastfood,10)
 ```
 
-#display first 10 rows and 5 variables #7 
+#**display first 10 rows and 5 variables #7**
 ```{r}
 knitr::kable(fastfood[1:10,1:5],"pipe")
+
+```
+
+#**8.Display the observations that has more than 1000 calories**
+```{r}
+fastfood%>%
+ filter(calories>1000)
+```
+
+#**9.observations with more than 40 in total_fat and more than 80 in total_carb in a new variable called `dont_eat_this**
+```{r}
+dont_eat_this<-fastfood%>%
+select(restaurant,item,total_fat, total_carb)%>%
+filter(total_fat>40 )%>%
+filter(total_carb>80)
+```
+
+```{r}
+fastfood%>%
+  filter(total_fat>40 )%>%
+filter(total_carb>80)%>%
+select(restaurant,item,total_fat, total_carb)
+
+```
+#**display observations from restaurant Mcdonalds**
+```{r}
+fastfood%>%
+  filter(restaurant=="Mcdonalds")
 ```
