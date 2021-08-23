@@ -1,0 +1,57 @@
+---
+title: "assessment 1.1"
+author: "Timothy To"
+date: "8/16/2021"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r, echo=FALSE}
+library(tidyverse)
+library(skimr)
+library(janitor)
+library(dplyr)
+library(reshape)
+library(tidyr)
+library(skimr)
+```
+
+```{r fastfood}
+fastfood<-read.csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-09-04/fastfood_calories.csv')
+```
+
+
+# **RMarkdown editing**
+**R Markdown is a file format for making dynamic documents with R. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code**
+
+**__#Part 1__**
+
+```{r}
+
+head(fastfood,10)
+
+knitr::kable(fastfood[1:10,1:5],"pipe")
+
+fastfood%>%filter(calories>1000)
+
+dont_eat_this<-fastfood%>%
+select(restaurant,item,total_fat, total_carb)%>%
+filter(total_fat>40 )%>%
+filter(total_carb>80)
+
+fastfood%>%
+  filter(restaurant=="Mcdonalds")
+  
+```
+
+#**part 2** up to 14
+
+```{r}
+fastfood%>%skim()
+
+fastfood%>%count(restaurant)
+
+fastfood%>%group_by(restaurant)%>%summarise(calories=mean(calories))
+
+```
