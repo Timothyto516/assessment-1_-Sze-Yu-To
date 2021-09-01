@@ -28,17 +28,17 @@ fastfood<-read.csv('https://raw.githubusercontent.com/rfordatascience/tidytuesda
 **__#Part 1__**
 
 ```{r}
-
+#7
 head(fastfood,10)
 
 knitr::kable(fastfood[1:10,1:5],"pipe")
-
+#8
 fastfood%>%filter(calories>1000)
-
+#9
 dont_eat_this<-fastfood%>%
 select(restaurant,item,total_fat, total_carb)%>%
 filter(total_fat>40, total_carb>80 )
-
+#10
 fastfood%>%
   filter(restaurant=="Mcdonalds")
   
@@ -47,24 +47,26 @@ fastfood%>%
 #**part 2**
 
 ```{r}
+#11
 fastfood%>%skim()
-
+#12
 fastfood%>%count(restaurant)
 
-
+#13
 fastfood%>%group_by(restaurant)%>%summarise(calories=mean(calories))
 
-
+#14
 fastfood %>% group_by(restaurant)  %>% mutate (average_calories = mean(calories)) %>% ungroup ()
 
-
+#15
 fastfood%>%ggplot(aes(restaurant,total_fat))+geom_col()+theme_classic()
 
 #A bar chart can show a distribution of data to do comparison of metric values across different subgroup. The reasons i choose bar chart rather than another graph, due to it is easier for us to do the comparison against each others. 
 
+#16
 fastfood%>%group_by(restaurant) %>% mutate(max_total_fat = max(total_fat)) %>% ungroup()
 
-
+#17
 fastfood%>%filter(restaurant=="Mcdonalds")%>%ggplot(aes(sugar,protein))+geom_point()
 
 
